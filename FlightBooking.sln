@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightBooking.WebUI", "FlightBooking.WebUI\FlightBooking.WebUI.csproj", "{47AC5654-1A52-4B02-AE02-BC947D865687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightBooking.Infrastructure", "FlightBooking.Infrastructure\FlightBooking.Infrastructure.csproj", "{631B46B5-5C1E-4865-85FC-0473809092EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47AC5654-1A52-4B02-AE02-BC947D865687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AC5654-1A52-4B02-AE02-BC947D865687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AC5654-1A52-4B02-AE02-BC947D865687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AC5654-1A52-4B02-AE02-BC947D865687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631B46B5-5C1E-4865-85FC-0473809092EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631B46B5-5C1E-4865-85FC-0473809092EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631B46B5-5C1E-4865-85FC-0473809092EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631B46B5-5C1E-4865-85FC-0473809092EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7758E2C3-3991-4C4D-B165-9CFF5232D515}
+	EndGlobalSection
+EndGlobal
