@@ -1,3 +1,4 @@
+using FlightBooking.Infrastructure;
 using FlightBooking.Infrastructure.Clients;
 using FlightBooking.WebUI.Controllers;
 using StackExchange.Redis;
@@ -11,9 +12,12 @@ var redis = ConnectionMultiplexer.Connect(redisConnection);
 
 var redisClient = new RedisClient(redisConnection, allowAdmin: true);
 builder.Services.AddSingleton<IRedisClient>(redisClient);
-
 builder.Services.AddScoped(s => redis.GetDatabase());
-builder.Services.AddScoped<RedisController>(_ => new RedisController(redisClient.Database, redisClient));
+
+//DataSeeder.SeedAirplanes();
+
+builder.Services.AddScoped<IRedisService, RedisService>();
+builder.Services.AddScoped<RedisController>(_ => new RedisController(redisClient.Database, redisClient, new RedisService(redisClient.Database)));
 
 builder.Services.AddControllers();
 

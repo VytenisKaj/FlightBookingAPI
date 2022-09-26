@@ -1,4 +1,5 @@
-﻿using FlightBooking.Infrastructure.Clients;
+﻿using FlightBooking.Infrastructure;
+using FlightBooking.Infrastructure.Clients;
 using Microsoft.AspNetCore.Mvc;
 using StackExchange.Redis;
 
@@ -10,11 +11,13 @@ namespace FlightBooking.WebUI.Controllers
     {
         private readonly IDatabase _database;
         private readonly IRedisClient _redisClient;
+        private readonly IRedisService _redisService;
 
-        public RedisController(IDatabase database, IRedisClient redisClient)
+        public RedisController(IDatabase database, IRedisClient redisClient, IRedisService redisService)
         {
             _database = database;
             _redisClient = redisClient;
+            _redisService = redisService;
         }
 
         // GET: api/redis/allItems
@@ -44,28 +47,28 @@ namespace FlightBooking.WebUI.Controllers
         [HttpGet]
         public string GetValue([FromQuery] string key)
         {
-            return _database.StringGet(key).ToString();
+            return _redisService.GetItemByKey(key);
         }
 
         // POST api/redis
         [HttpPost]
         public void AddItem([FromBody] KeyValuePair<string, string> keyValue)
         {
-            _database.StringSet(keyValue.Key, keyValue.Value);
+            _redisService.AddItem(keyValue);
         }
 
         // PUT api/redis/
         [HttpPut("{key}")]
         public void UpdateItem([FromBody] KeyValuePair<string, string> keyValue)
         {
-            _database.StringSet(keyValue.Key, keyValue.Value);
+            _redisService.UpdateItem(keyValue);
         }
 
         // DELETE api/redis/key
         [HttpDelete("{key}")]
         public void DeleteKey(string key)
         {
-            _database.KeyDelete(key);
+            _redisService.DeleteKey(key);
         }
     }
 }
